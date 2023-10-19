@@ -1,6 +1,5 @@
+# Blogi
 
-<<<<<<< HEAD
-=======
 Welcome,
 
 This project is created for users to share their experiences in the world. Are you traveling, hiking, partying or other activities? You are free to share it with friends, family or anyone by introducing them to this website.
@@ -10,7 +9,7 @@ On our website you can like and comment on your posts and other people posts. Yo
 
 ## Table of Contents
 
-- [\<\<\<\<\<\<\< HEAD](#-head)
+- [Blogi](#blogi)
   - [Table of Contents](#table-of-contents)
   - [User Experience](#user-experience)
     - [User stories](#user-stories)
@@ -27,5 +26,3 @@ As a user I would like to be able to...
 - Click on a post and read the full text
 
 ### Admin stories
-
->>>>>>> ee850ea (Update readme)
