@@ -6,7 +6,7 @@
     <div class="row">
 
         <!-- Column for Blog entries -->
-        <div class="container mt-5 mb-3">
+        <div class="container mt-5 mb-3 home-page-container">
             <div class="row">
                 {% for post in post_list %}
                     <div class="col-md-4">
@@ -20,9 +20,9 @@
 
                                     <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                     {% endif %}
-                                    <h5 class="card-title mt-3">{{post.title}}
+                                    <a href="{% url 'post_details' post.slug %}" class="card-title mt-3">{{ post.title }}
                                         <br>
-                                        <p class="card-author mt-1">by {{post.author}}</p>
+                                        <p class="card-author mt-1">by {{ post.author }}</p>
                                         <p class="card-created-date text-muted">{{ post.created_on }}
                                             <i class="far fa-heart"></i> {{ post.number_of_likes }}
                                         </p>
@@ -30,11 +30,8 @@
                                         <hr />
 
                                         <p class="card-text">{{ post.excerpt }}</p>
-                                    </h5>
+                                    </a>
                                 </div>
-                                
-                                 
-                                    
                             </div>
                         </div>
                     </div>

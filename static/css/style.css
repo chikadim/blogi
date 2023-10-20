@@ -9,11 +9,15 @@ body {
     color: #4A4A4F;
 }
 
-.card {
+.home-page-container .card {
     border: none;
     background-color: transparent;
     width: 20rem;
     height: 33rem;
+}
+
+.card-title {
+    text-decoration: none;
 }
 
 .card-author {
@@ -28,6 +32,55 @@ body {
     margin-left: 2px;
 }
 
-.image-container {
-    position: relative;
+.postdetails-user-wrapper {
+    background-color: aquamarine;
+    padding: 100px 100px;
+
+}
+
+.postdetails-user-wrapper .card-title {
+    margin: 15px 0 30px;
+}
+
+.image-hold {
+    background-color: antiquewhite;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+
+.name-and-time {
+    margin-left: 5px;
+}
+
+.name-and-time p {
+    margin: 0 !important;
+}
+
+.name-and-time .user-name {
+    color: cadetblue
+}
+
+.name-and-time .date-and-time {
+    font-size: 12px;
+}
+
+.post-image-container {
+    overflow: none;
+    width: 100%;
+    height: 300px;
+    background-color: beige;
+    margin-top: 20px;
+}
+
+.postdetails-user-wrapper hr {
+    margin-top: 50px;
+}
+
+.postdetails-user-wrapper .card-text {
+    margin-top: 20px;
+}
+
+.likes-comments .icons {
+    margin-left: 50px;
 }
