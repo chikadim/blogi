@@ -30,11 +30,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['blogi-177f0953c4d1.herokuapp.com']
+ALLOWED_HOSTS = ['blogi-177f0953c4d1.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'home',
+    'postdetails',
 ]
 
 SITE_ID = 1
@@ -117,7 +118,6 @@ WSGI_APPLICATION = 'blogi.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
