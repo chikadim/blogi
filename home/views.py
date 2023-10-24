@@ -45,3 +45,7 @@ def Delete_Blog_Post(request, slug):
         posts.delete()
         return redirect('/')
     return render(request, 'home/delete_blog_post.html', {'posts': posts})
+
+
+def Profile(request):
+    return render(request, "home/profile.html")

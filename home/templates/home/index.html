@@ -31,6 +31,7 @@
 
                                         <p class="card-text">{{ post.content }}</p>
                                     </a>
+                                    <a href="{% url 'post_details' post.slug %}" class="btn btn-primary">Read More {% if user.is_superuser %}<a href="delete_blog_post/{{post.slug}}/" class="btn btn-danger mx-4">Delete Blog</a>{% endif %}</a>
                                 </div>
                             </div>
                         </div>

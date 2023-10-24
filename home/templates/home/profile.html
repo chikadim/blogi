@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+{% block profileactive %} active {% endblock profileactive %}
+
+{% block content %}
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="image-hold align-items-center overflow-hidden">
+                    {% if "placeholder" in user.profile_image.url %} <img class="img-fluid" alt="User photo"
+                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                    {% else %}
+                    <img src=" {{ user.profile_image.url }}" width="100%" />
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="profile-tab">
+                    <div class="tab-pane">
+                        <br><br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Username:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.email}}</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <a href="/edit_profile/" class="btn btn-secondary">Edit Profile</a>
+                </div>
+            </div>
+</div>
+</div>
+{% endblock %}
