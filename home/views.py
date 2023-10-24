@@ -1,8 +1,10 @@
 '''Import model'''
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic import UpdateView
 from .models import Post
 from home.forms import BlogPostForm
+from django.urls import reverse_lazy
 
 
 class PostList(generic.ListView):
@@ -22,7 +24,16 @@ def add_blogs(request):
             blogpost.save()
             obj = form.instance
             alert = True
-            return render(request, "home/add_blogs.html", {'obj': obj, 'alert': alert})
+            return render(request, "home/add_blogs.html", {
+                'obj': obj, 'alert': alert
+                })
     else:
         form = BlogPostForm()
     return render(request, "home/add_blogs.html", {'form': form})
+
+
+class UpdatePostView(UpdateView):
+    model = Post
+    template_name = 'home/edit_blog_post.html'
+    fields = ['title', 'slug', 'content', 'featured_image']
+    success_url = reverse_lazy('post_details')

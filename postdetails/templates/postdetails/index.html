@@ -24,7 +24,8 @@
                     
                             {% if user.is_authenticated %}
                             {% if user.id == post.author.id %}
-                            <small><a href="/edit_blog_post/{{post.slug}}/" class="edit btn btn-warning">Edit Blog Post</a></small>
+                            <small><a href="/edit_blog_post/{{post.slug}}/" class="edit btn btn-primary">Edit Blog Post</a></small>
+                            <small><a href="/delete_blog_post/{{post.slug}}/" class="btn btn-danger">Delete Blog Post</a></small>
                             {% endif %}
                             {% endif %}
                     
