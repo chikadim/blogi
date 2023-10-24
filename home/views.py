@@ -1,5 +1,5 @@
 '''Import model'''
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import UpdateView
 from .models import Post
@@ -37,3 +37,11 @@ class UpdatePostView(UpdateView):
     template_name = 'home/edit_blog_post.html'
     fields = ['title', 'slug', 'content', 'featured_image']
     success_url = reverse_lazy('post_details')
+
+
+def Delete_Blog_Post(request, slug):
+    posts = Post.objects.get(slug=slug)
+    if request.method == "POST":
+        posts.delete()
+        return redirect('/')
+    return render(request, 'home/delete_blog_post.html', {'posts': posts})
