@@ -6,6 +6,16 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    featured_image = CloudinaryField('image', default='placeholder')
+    bio = models.TextField(blank=True, null=True)
+    phone_no = models.IntegerField(blank=True, null=True)
+    facebook = models.CharField(max_length=300, blank=True, null=True)
+    instagram = models.CharField(max_length=300, blank=True, null=True)
+    linkedin = models.CharField(max_length=300, blank=True, null=True)
+
+
 class Post(models.Model):
     '''This model handles all posts'''
 
