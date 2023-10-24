@@ -47,5 +47,12 @@ def Delete_Blog_Post(request, slug):
     return render(request, 'home/delete_blog_post.html', {'posts': posts})
 
 
+def user_profile(request, myid):
+    post = Post.objects.filter(id=myid)
+    return render(request, "home/user_profile.html", {'post': post})
+
+
 def Profile(request):
     return render(request, "home/profile.html")
+
+

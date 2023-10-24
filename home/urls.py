@@ -11,4 +11,5 @@ urlpatterns = [
 
     # profile
     path("profile/", views.Profile, name="profile"),
+    path("user_profile/<int:myid>/", views.user_profile, name="user_profile"),
 ]
