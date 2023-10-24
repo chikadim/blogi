@@ -9,10 +9,10 @@
 
 <div class="container mt-4">
     <div class="form-group">
-        <form action="/add_blogs/" method="post">{% csrf_token %}
+        <form action="/add_blogs/" method="post" enctype="multipart/form-data">{% csrf_token %}
             {{ form.as_p }}
-            <button class = "btn btn-primary"> Post </button>
-    
+            <button class ="btn btn-primary">Post</button>
+        </form>
     </div>
 </div>
 {% endif %}
