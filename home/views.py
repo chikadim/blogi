@@ -2,8 +2,8 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import UpdateView
-from .models import Post
-from home.forms import BlogPostForm
+from .models import Post, Profile
+from home.forms import BlogPostForm, ProfileForm
 from django.urls import reverse_lazy
 
 
@@ -48,11 +48,25 @@ def Delete_Blog_Post(request, slug):
 
 
 def user_profile(request, myid):
-    post = Post.objects.filter(id=myid)
-    return render(request, "home/user_profile.html", {'post': post})
+    profile = Profile.objects.filter(user=myid)
+    return render(request, "home/user_profile.html", {'profile': profile})
 
 
-def Profile(request):
+def see_profile(request):
     return render(request, "home/profile.html")
 
 
+def edit_profile(request):
+    try:
+        profile = request.user.profile
+    except Profile.DoesNotExist:
+        profile = Profile(user=request.user)
+    if request.method == "POST":
+        form = ProfileForm(data=request.POST, files=request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            alert = True
+            return render(request, "home/edit_profile.html", {'alert': alert})
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, "home/edit_profile.html", {'form': form})

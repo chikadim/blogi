@@ -24,4 +24,6 @@ class CommentAdmin(admin.ModelAdmin):
         queryset.update(approved=True)
 
 
-admin.site.register(Profile)
+@admin.register(Profile)
+class Profile(admin.ModelAdmin):
+    list_display = ('user', 'profile_image', 'bio', 'phone_no', 'facebook', 'instagram', 'linkedin')
