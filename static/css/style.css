@@ -55,12 +55,11 @@ body {
     margin: 15px 0 30px;
 }
 
-.image-hold {
+.image-hold img {
     background-color: antiquewhite;
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    cursor: pointer;
 }
 
 .info-row {
