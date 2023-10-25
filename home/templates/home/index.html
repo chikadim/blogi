@@ -2,7 +2,24 @@
 
 {% block content %}
 
+
 <div class="container-fluid home-page-container">
+
+    <div class="row">
+        <div class="col">
+            <div class="intro-heading">
+                <div class="title">
+                    Blogi
+                </div>
+                <div class="desc-one">
+                    Would you like to read or share experiences?
+                </div>
+                <div class="desc-two">
+                    You are welcome
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
 
         <!-- Column for Blog entries -->
@@ -24,12 +41,16 @@
                                         <br>
                                         <p class="card-author mt-1">by {{ post.author }}</p>
                                         <p class="card-created-date text-muted">{{ post.created_on }}
-                                            <i class="far fa-heart"></i> {{ post.number_of_likes }}
                                         </p>
 
                                         <hr />
 
                                         <p class="card-text">{{ post.content| truncatechars:210 }}</p>
+
+                                        <i class="fas fa-heart color-icon"></i> {{ post.number_of_likes }}
+                                        
+                                        <span class="comments-icon"><i class="far fa-comments icons"></i> {{ post.comments.count }}</span>
+                           
                                     </a>
                                 </div>
                             </div>
