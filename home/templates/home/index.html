@@ -29,12 +29,12 @@
 
                                         <hr />
 
-                                        <p class="card-text">{{ post.content }}</p>
+                                        <p class="card-text">{{ post.content| truncatechars:210 }}</p>
                                     </a>
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-center gap-1">
-                                <a href="{% url 'post_details' post.slug %}" class="btn btn-bottom btn-primary">Read More</a>
+                                <a href="{% url 'post_details' post.slug %}" class="btn btn-bottom btn-primary read-more-btn">Read More</a>
                                 {% if user.is_superuser %}
                                 <a href="delete_blog_post/{{post.slug}}/" class="btn btn-danger">Delete Blog</a>
                                 {% endif %}

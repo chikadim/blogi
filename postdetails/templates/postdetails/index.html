@@ -10,11 +10,7 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ post.title }}</h4>
                         <div class="d-flex flex-row align-items-center">
-
-                            
-
                             <div class="image-hold align-items-center overflow-hidden">
-                                
                                 <a href="/user_profile/{{post.author.id}}/">
                                     {% if post.author.profile.profile_image.url %}
                                     <img src="{{post.author.profile.profile_image.url}}" alt="User Photo"/>
@@ -23,11 +19,8 @@
                                     <img class="img-fluid" alt="User Photo"
                                         src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                     {% endif %}
-                                </a>
-                                
+                                </a>    
                             </div>
-
-                            
                             <div class="name-and-time me-auto">
                                 <p class="user-name"><a href="/user_profile/{{post.author.id}}/">{{ post.author }}</a></p>
                                 <p class="date-and-time">{{ post.created_on }}</p>

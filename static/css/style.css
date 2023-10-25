@@ -7,13 +7,19 @@ body {
 }
 
 .home-page-container {
-    background-color: #23BBBB;
+    background-color: #107C7C;
     padding: 0 12%;
 }
 
 .footer-container {
-    background-color: black;
-    padding: 70px 0; 
+    background-color: #234E5A;
+    padding: 70px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .brand {
@@ -46,8 +52,7 @@ body {
 }
 
 .postdetails-user-wrapper {
-    background-color: aquamarine;
-    padding: 100px 100px;
+    padding: 100px 200px;
 
 }
 
@@ -92,12 +97,13 @@ body {
     font-size: 12px;
 }
 
-.post-image-container {
+.post-image-container img{
     overflow: none;
-    width: 100%;
-    height: 300px;
     background-color: beige;
     margin-top: 20px;
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
 }
 
 .postdetails-user-wrapper hr {
@@ -128,13 +134,33 @@ body {
 .card-footer {
     background: transparent;
     border-top: 0px;
+    padding-bottom: 20px;
 }
 
 .card-footer .btn {
     width: 100%;
 }
 
+.card-footer .read-more-btn {
+    background-color: #3FAA85;
+    border-color: #3FAA85;
+}
+
 .confirm-sign-out {
     margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .postdetails-user-wrapper {
+        padding: 100px 50px;
+    
+    }
+}
+
+@media (max-width: 480px) {
+    .postdetails-user-wrapper {
+        padding: 50px 0px;
+    
+    }
 }
 
