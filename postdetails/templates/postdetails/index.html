@@ -12,11 +12,12 @@
                         <div class="d-flex flex-row align-items-center">
                             <div class="image-hold align-items-center overflow-hidden">
                                 <a href="/user_profile/{{post.author.id}}/">
-                                    {% if "placeholder" in profile.profile_image.url %} 
+                                    {% if post.profile_image.url %}
+                                    <img src="{{ post.profile_image.url }}" />
+                                    
+                                    {% else %}
                                     <img class="img-fluid" alt="User photo"
                                         src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
-                                    {% else %}
-                                    <img src="{{ profile.profile_image.url }}" />
                                     {% endif %}
                                 </a>
 

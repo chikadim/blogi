@@ -5,13 +5,15 @@
 {% block content %}    
 
 <div class="container profile">
+    <div class="row">
+        <div class="col">
             <form method="post" id="form" name="form">
-                <div class="row">
+                <div class="row info-row">
                     {% for i in profile %}
                     <div class="col-md-4">
                         <div class="profile-img">
                             {% if i.profile_image %}
-                            <img src="{{i.profile_image.url}}" alt="" width="310px" height="270px">
+                            <img src="{{i.profile_image.url}}" alt="">
                             {% endif %}
                         </div>
                     </div>
@@ -75,9 +77,12 @@
                                 {% endif %}
                                 {% endfor %}             
                             </div>                 
-                        </div>
+                        </div>   
                     </div>
-            </form>    
-            </div>       
+                </div>
+            </form> 
         </div>
+        
+    </div>       
+</div>
         {% endblock %}

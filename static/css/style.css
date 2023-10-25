@@ -6,18 +6,21 @@ body {
     background-color: #F9FAFC;
 }
 
+.home-page-container {
+    background-color: #23BBBB;
+    padding: 0 12%;
+}
+
+.footer-container {
+    background-color: black;
+    padding: 70px 0; 
+}
+
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
-}
-
-.home-page-container .card {
-    border: none;
-    background-color: transparent;
-    width: 20rem;
-    height: 33rem;
 }
 
 .card-title {
@@ -58,6 +61,20 @@ body {
     height: 80px;
     border-radius: 100%;
     cursor: pointer;
+}
+
+.info-row {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.profile .profile-img img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
 }
 
 .name-and-time {
@@ -117,3 +134,8 @@ body {
 .card-footer .btn {
     width: 100%;
 }
+
+.confirm-sign-out {
+    margin-top: 50px;
+}
+
