@@ -82,17 +82,17 @@ As an admin I would like to be able to...
   * The logo is a simple word which demonstrates the intent of the website
   * The logo serves as a link to return to the home page
   
-![Logo](static/images/logoimage.png)
+  ![Logo](media/images/logoimage.png)
 
 * Base Template
 
   * Header with navigation bar and search
-  ![Header with navigation and search](static/images/navbarimage.png)
+  ![Header with navigation and search](media/images/navbarimage.png)
 
   * Footer with social media links
-  ![Footer with social media links](static/images/footerimage.png)
+  ![Footer with social media links](media/images/footerimage.png)
 
 * Index Page
   * Introduction telling you about the site and what to do
 
-  ![Introduction](static/images/introimage.png)
+  ![Introduction](media/images/introimage.png)

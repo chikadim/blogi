@@ -13,23 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 60px 0;
-    background-color: #234E5A;
-
-}
-
-.intro-heading .title{
-    font-size: 50px;
-
-}
-
-.intro-heading {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px 0;
+    padding: 40px 0;
     color: #F9FAFC;
     background-color: #234E5A;
 

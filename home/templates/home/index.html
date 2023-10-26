@@ -37,7 +37,7 @@
 
                                     <img class="card-img-top" src="{{ post.featured_image.url }}">
                                     {% endif %}
-                                    <a href="{% url 'post_details' post.slug %}" class="card-title mt-3">{{ post.title }}
+                                    <a href="{% url 'post_details' post.slug %}" class="card-title mt-3">{{ post.title| truncatechars:40 }}
                                         <br>
                                         <p class="card-author mt-1">by {{ post.author }}</p>
                                         <p class="card-created-date text-muted">{{ post.created_on }}
