@@ -164,7 +164,7 @@ As an admin I would like to be able to...
 * Messages
 
   * Review submission, sign in and out message confirmation
-  * Times out after 2.5 seconds
+  * Times out after 3 seconds
 
 
 ### Future Features

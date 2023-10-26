@@ -37,7 +37,7 @@
 
                                     <img class="card-img-top" src="{{ post.featured_image.url }}">
                                     {% endif %}
-                                    <a href="{% url 'post_details' post.slug %}" class="card-title mt-3">{{ post.title| truncatechars:40 }}
+                                    <a href="{% url 'post_details' post.slug %}" class="card-title mt-3">{{ post.title| truncatechars:20 }}
                                         <br>
                                         <p class="card-author mt-1">by {{ post.author }}</p>
                                         <p class="card-created-date text-muted">{{ post.created_on }}
@@ -72,13 +72,13 @@
         </div>
     </div>
 
-    <nav aria-label="Page navigation">
+    <nav class="pagination-nav" aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link">&laquo; PREV</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Page {% endblock %}
+
+{% block css %}
+{% endblock %}
+{% block content %}
+
+{% if search_query %}
+<div class="container mt-5 mb-3">
+
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-lg-4 my-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="image-container">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+
+                        {% else %}
+
+                        <img class="card-img-top" src="{{ post.featured_image.url }}">
+                        {% endif %}
+                        <a href="{% url 'post_details' post.slug %}" class="card-title mt-3">{{ post.title| truncatechars:20 }}
+                            <br>
+                            <p class="card-author mt-1">by {{ post.author }}</p>
+                            <p class="card-created-date text-muted">{{ post.created_on }}
+                            </p>
+
+                            <hr />
+
+                            <p class="card-text">{{ post.content| truncatechars:210 }}</p>
+
+                            <i class="fas fa-heart color-icon"></i> {{ post.number_of_likes }}
+                            
+                            <span class="comments-icon"><i class="far fa-comments icons"></i> {{ post.comments.count }}</span>
+               
+                        </a>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-center gap-1">
+                    <a href="{% url 'post_details' post.slug %}" class="btn btn-bottom btn-primary read-more-btn">Read More</a>
+                    {% if user.is_superuser %}
+                    <a href="delete_blog_post/{{post.slug}}/" class="btn btn-danger">Delete Blog</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<h1>You forgot to search</h1>
+{% endif %}
+{% endblock %}

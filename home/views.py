@@ -15,6 +15,18 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
+def search_feature(request):
+    # Check if the request is a post request.
+    if request.method == 'POST':
+        # Retrieve the search query entered by the user
+        search_query = request.POST['search_query']
+        # Filter Post Model by the search query
+        posts = Post.objects.filter(title__contains=search_query)
+        return render(request, 'home/search.html', {'search_query': search_query, 'posts': posts})
+    else:
+        return render(request, 'home/search.html', {})
+
+
 def add_blogs(request):
     if request.method == "POST":
         form = BlogPostForm(data=request.POST, files=request.FILES)
