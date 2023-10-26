@@ -16,7 +16,6 @@ body {
     padding: 40px 0;
     color: #F9FAFC;
     background-color: #234E5A;
-
 }
 
 .intro-heading .title{
@@ -31,6 +30,17 @@ body {
 
 .navbar-brand {
     font-family: Roboto, 'sans-serif';
+}
+
+.make-margin-right {
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-item .style-text {
+    background-color: #051B11;
+    border: 1px solid #0F5132;
+    color: #75B898;
+    font-weight: bold;
 }
 
 .home-page-container {
