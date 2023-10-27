@@ -1,5 +1,4 @@
 from django.db import models
-from autoslug import AutoSlugField
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
@@ -18,9 +17,11 @@ class Profile(models.Model):
     linkedin = models.CharField(max_length=300, blank=True, null=True)
 
 
-class Kind(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    slug = AutoSlugField(populate_from="name", default='A type')
+class Variety(models.Model):
+    class Meta:
+        verbose_name_plural = "varieties"
+    cat_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=35)
 
     def __str__(self):
         return self.name
@@ -32,7 +33,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
-    kind = models.ForeignKey(to=Kind, related_name="posts", on_delete=models.SET_NULL, blank=True, null=True)
+    variety = models.ForeignKey(to=Variety, related_name="posts", on_delete=models.SET_NULL, blank=True, null=True)
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)

@@ -19,7 +19,7 @@
     <body class="d-flex flex-column h-100 main-bg">
         <!-- Navigation -->
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">Blogi</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                 {% for item in cat_menu %}
-                                <li><a class="dropdown-item" href="{% url 'kind' item|slugify %}">{{item}}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'variety-index' item.cat_id %}">{{ item }}</a></li>
                                 {% endfor %}
                                 <!--<li>
                                     <hr class="dropdown-divider">
@@ -105,19 +105,6 @@
         {% endblock content %}
         </main>
 
-        <!-- Footer -->
-        <footer class="footer mt-auto py-3 footer-container">
-            <p class="m-0 text-center text-white">Blogi</p>
-            <p class="m-0 text-center text-white">
-                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square ms-3"></i></a>
-                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter-square ms-3"></i></a>
-                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram-square ms-3"></i></a>
-                <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square ms-3"></i></a>
-                
-                
-                
-            </p>
-        </footer>
 
         <script>
             setTimeout(function () {

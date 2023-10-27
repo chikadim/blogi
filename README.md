@@ -12,14 +12,29 @@ On our website you can like and comment on your posts and other people posts. Yo
 - [Blogi](#blogi)
   - [Table of Contents](#table-of-contents)
   - [User Experience](#user-experience)
+    - [Strategy](#strategy)
     - [User Stories](#user-stories)
     - [Admin Stories](#admin-stories)
-  - [Planning](#planning)
+  - [Scope](#scope)
   - [Featues](#featues)
   - [Future Features](#future-features)
   - [Testing](#testing)
 
 ## User Experience
+
+### Strategy
+This site was created respecting the Five Planes Of Website Design:
+
+### Project Goal
+Create a website for the owner and users.
+
+Project Objectives:
+
+- To create a website with a simple and intuitive User Experience;
+- To add content that is relevant and helps create a better image of the owner of the website and the users as well;
+- To differentiate between users and staff members accounts;
+- To implement fully functional features that will make users achieve their goals of sharing ideas and reacting to other users posts;
+- To make the website available and functional on every device.
 
 ### User stories
 
@@ -59,8 +74,17 @@ As an admin I would like to be able to...
 
 - Delete a post from the home page when i am signed in
 
-## Planning
 
+### Agile Methodology
+
+This project was developed using the Agile methodology.
+All epics and user stories implementation progress was registered using Github. As the user stories were accomplished,
+they were moved in the Github board from To Do, to in-progress and Done lists.
+
+![User stories](media/images/userstories.png)
+
+
+### Featues
 * Colour Scheme
   * Simple colour scheme was used during the development of this project
   * Constrting colours for easy legibility and style
@@ -76,9 +100,6 @@ As an admin I would like to be able to...
 
 * Pages were planned out on [Figma](https://www.figma.com) using wireframes
 
-
-
-## Featues
 
 * Logo
   * The logo is a simple word which demonstrates the intent of the website
@@ -167,6 +188,4 @@ As an admin I would like to be able to...
   * Times out after 3 seconds
 
 
-### Future Features
 
-* Users will be able to have list of categories to select from while posting

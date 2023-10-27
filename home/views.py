@@ -1,9 +1,9 @@
 '''Import model'''
 from typing import Any
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import UpdateView
-from .models import Post, Profile, Kind
+from .models import Post, Profile, Variety
 from home.forms import BlogPostForm, ProfileForm
 from django.urls import reverse_lazy
 
@@ -16,27 +16,18 @@ class PostList(generic.ListView):
     paginate_by = 6
 
     def get_context_data(self, *args, **kwargs):
-        cat_menu = Kind.objects.all()
+        cat_menu = Variety.objects.all()
         context = super(PostList, self).get_context_data(*args, **kwargs)
         context["cat_menu"] = cat_menu
+
         return context
 
 
-'''def list_posts_by_kind(request, slug):
-    kind = get_object_or_404(Kind, slug=slug)
-
-    posts = Post.objects.filter(kind=kind)
-
-    context = {"kind_name": kind.name, "posts": posts}
-
-    return render(request, "kind.html", context)'''
-
-
-'''def list_posts_by_kind(request, slug):
-    kind = get_object_or_404(Kind, slug=slug)
-    posts = Post.objects.filter(kind=kind)
-
-    return render(request, 'home/kind.html', {'kind_name': kind.name, 'posts': posts})'''
+def ReadCat(request, id):
+    vats = Variety.objects.get(cat_id=id)
+    posts = Post.objects.filter(variety=vats)
+    context = {'vat': vats, 'posts': posts}
+    return render(request, 'home/varieties.html', context)
 
 
 def search_feature(request):
@@ -71,7 +62,7 @@ def add_blogs(request):
 class UpdatePostView(UpdateView):
     model = Post
     template_name = 'home/edit_blog_post.html'
-    fields = ['title', 'slug', 'content', 'featured_image']
+    fields = ['title', 'slug', 'content', 'variety', 'featured_image']
     success_url = reverse_lazy('post_details')
 
 

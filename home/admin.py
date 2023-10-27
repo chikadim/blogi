@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Post, Comment, Profile, Kind
+from .models import Post, Comment, Profile, Variety
 from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-    list_display = ('title', 'featured_image', 'slug', 'status', 'created_on')
+    list_display = ('title',  'featured_image', 'variety', 'slug', 'status', 'created_on')
     search_fields = ['title', 'content']
     list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
@@ -28,4 +28,6 @@ class Profile(admin.ModelAdmin):
     list_display = ('user', 'profile_image', 'bio', 'phone_no', 'facebook', 'instagram', 'linkedin')
 
 
-admin.site.register(Kind, admin.ModelAdmin)
+@admin.register(Variety)
+class Variety(admin.ModelAdmin):
+    list_display = ('cat_id', 'name')

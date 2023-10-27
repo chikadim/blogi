@@ -8,8 +8,7 @@ urlpatterns = [
     path("edit_blog_post/<str:slug>/", UpdatePostView.as_view(), name="edit_blog_post"),
     path("delete_blog_post/<str:slug>/", views.Delete_Blog_Post, name="delete_blog_post"),
     path("search/", views.search_feature, name="search-view"),
-    # path("kind/<slug:slug>", views.list_posts_by_kind, name="kind"),
-    path("kind/<slug:slug>", views.PostList.as_view(), name="kind"),
+    path('vat/<int:id>/', views.PostList.as_view(), name="variety-index"),
 
 
     # profile
