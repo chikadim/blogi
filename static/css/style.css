@@ -44,7 +44,6 @@ body {
 }
 
 .home-page-container {
-    background-color: #107C7C;
     padding: 0 12%;
 }
 
@@ -235,6 +234,17 @@ body {
 
 .pagination-nav {
     padding-top: 20px;
+}
+
+.style-kind {
+    background-color: #051B11;
+    border: 1px solid #0F5132;
+    color: #a0f6cd;
+    font-weight: bold;
+    float: right;
+    padding: 2px 20px;
+    border-bottom-left-radius: 30%;
+    border-top-right-radius: 30%;
 }
 
 @media (max-width: 768px) {

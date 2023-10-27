@@ -41,6 +41,10 @@
                                         <br>
                                         <p class="card-author mt-1">by {{ post.author }}</p>
                                         <p class="card-created-date text-muted">{{ post.created_on }}
+
+                                            {% if post.kind %}
+                                            <span class="style-kind" href="{% url 'kind' post.kind.slug %}">{{post.kind}}</span>
+                                            {% endif %}
                                         </p>
 
                                         <hr />
@@ -84,4 +88,5 @@
     </nav>
     
 </div>
+
 {% endblock %}

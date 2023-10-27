@@ -1,8 +1,9 @@
 '''Import model'''
-from django.shortcuts import render, redirect
+from typing import Any
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.views.generic import UpdateView
-from .models import Post, Profile
+from .models import Post, Profile, Kind
 from home.forms import BlogPostForm, ProfileForm
 from django.urls import reverse_lazy
 
@@ -13,6 +14,29 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "home/index.html"
     paginate_by = 6
+
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = Kind.objects.all()
+        context = super(PostList, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
+
+
+'''def list_posts_by_kind(request, slug):
+    kind = get_object_or_404(Kind, slug=slug)
+
+    posts = Post.objects.filter(kind=kind)
+
+    context = {"kind_name": kind.name, "posts": posts}
+
+    return render(request, "kind.html", context)'''
+
+
+'''def list_posts_by_kind(request, slug):
+    kind = get_object_or_404(Kind, slug=slug)
+    posts = Post.objects.filter(kind=kind)
+
+    return render(request, 'home/kind.html', {'kind_name': kind.name, 'posts': posts})'''
 
 
 def search_feature(request):

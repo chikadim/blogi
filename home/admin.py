@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Profile
+from .models import Post, Comment, Profile, Kind
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -26,3 +26,6 @@ class CommentAdmin(admin.ModelAdmin):
 @admin.register(Profile)
 class Profile(admin.ModelAdmin):
     list_display = ('user', 'profile_image', 'bio', 'phone_no', 'facebook', 'instagram', 'linkedin')
+
+
+admin.site.register(Kind, admin.ModelAdmin)
