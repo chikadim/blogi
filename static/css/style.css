@@ -45,6 +45,10 @@ body {
     background-color: #234E5A;
 }
 
+.style-menu-item {
+    color: #000;
+}
+
 .intro-heading .title{
     font-size: 50px;
 

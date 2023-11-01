@@ -31,21 +31,16 @@
                             <div class="card-body">
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                    <img class="card-img-top" alt="Posted Image" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
 
                                     {% else %}
 
-                                    <img class="card-img-top" src="{{ post.featured_image.url }}">
+                                    <img class="card-img-top" alt="Posted Image" src="{{ post.featured_image.url }}">
                                     {% endif %}
                                     <a href="{% url 'post_details' post.slug %}" class="card-title mt-3">{{ post.title| truncatechars:20 }}
                                         <br>
                                         <p class="card-author mt-1">by {{ post.author }}</p>
                                         <p class="card-created-date text-muted">{{ post.created_on }}
-
-
-                                            
-
-
                                             {% if post.variety %}
                                             <span class="style-kind" href="">{{post.variety}}</span>
                                             {% endif %}
@@ -63,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-center gap-1">
-                                <a href="{% url 'post_details' post.slug %}" class="btn btn-bottom btn-primary read-more-btn">Read More</a>
+                                <a href="{% url 'post_details' post.slug %}" class="btn btn-bottom btn-primary read-more-btn">Read Post</a>
                                 {% if user.is_superuser %}
                                 <a href="delete_blog_post/{{post.slug}}/" class="btn btn-danger">Delete Blog</a>
                                 {% endif %}
@@ -79,9 +74,6 @@
             </div>
         </div>
     </div>
-
-    
-
     <nav class="pagination-nav" aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
@@ -92,8 +84,6 @@
             {% endif %}
         </ul>
     </nav>
-
-    
 </div>
 {% for i in cat_menu %}
 <a href="">{{ i.name }}</a>

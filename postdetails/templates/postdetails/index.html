@@ -53,7 +53,7 @@
                             {% if "placeholder" in post.featured_image.url %} <img class="img-fluid" alt="Posted image"
                             src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
                             {% else %}
-                            <img src=" {{ post.featured_image.url }}" width="100%" />
+                            <img src=" {{ post.featured_image.url }}" width="100%" alt="Posted Image"/>
                             {% endif %}
                         </div>
 
