@@ -230,7 +230,7 @@ For creating a clone of the repository on your local machine, use<b>Clone</b>:
 
 ## Credits
 ### Content
-* The content of the website is fictive. 
+* The contents of the posts were [Open AI](https://www.openai.com) 
 ### Media
 * All images were gotten from [Unsplash](https://www.unsplash.com)
 ### Code
