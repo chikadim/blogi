@@ -74,6 +74,15 @@ body {
     font-weight: bold;
 }
 
+.navbar-nav .nav-item .style-text-color {
+    color: #F9FAFC;
+}
+
+.navbar-nav .nav-item .style-user-color {
+    color: #F9FAFC;
+    font-weight: 600;
+}
+
 .home-page-container {
     padding: 0 12%;
 }

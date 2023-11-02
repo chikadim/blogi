@@ -28,15 +28,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav navbar-color me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link {% block homeactive %} {% endblock homeactive %}" aria-current="page"
+                            <a class="nav-link style-text-color {% block homeactive %} {% endblock homeactive %}" aria-current="page"
                                 href="/">Home</a>
                         </li>
 
                         {% if cat_menu %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categories </a>
+                            <a class="nav-link style-text-color dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Categories </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                 {% for item in cat_menu %}
@@ -57,24 +57,24 @@
                                     href="/add_blogs/">Add Blogs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {% block profileactive %} {% endblock profileactive %}"
+                                <a class="nav-link style-text-color {% block profileactive %} {% endblock profileactive %}"
                                     href="/profile/">Profile</a>
                             </li>
 
                             <li class="nav-item move-right">
-                                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                                <a class="nav-link style-text-color" href="{% url 'account_logout' %}">Logout</a>
                             </li>
                             <li class="nav-item make-margin-right">
-                                <a class="nav-link active" href="#">Hello {{request.user}}</a>
+                                <a class="nav-link active style-user-color" href="#">Hello {{request.user}}</a>
                             </li>
 
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link {% block registeractive %} {% endblock registeractive %}"
+                                <a class="nav-link style-text-color {% block registeractive %} {% endblock registeractive %}"
                                     href="{% url 'account_signup' %}">Register</a>
                             </li>
                             <li class="nav-item make-margin-right">
-                                <a class="nav-link {% block loginactive %} {% endblock loginactive %}" href="{% url 'account_login' %}">Login</a>
+                                <a class="nav-link style-text-color {% block loginactive %} {% endblock loginactive %}" href="{% url 'account_login' %}">Login</a>
                             </li>
                         {% endif %}
                     </ul>
