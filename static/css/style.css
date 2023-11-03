@@ -124,14 +124,17 @@ body {
 .card-title .card-text {
     font-weight:300;
     font-size: 16px;
+    color:#000;
 }
 
 .card-title:hover {
     color: #212529;
 }
 
-.card-created-date {
+.image-container .card-title .card-created-date {
     font-size: 12px;
+    color:#000;
+    font-weight: 300;
 }
 
 .card-created-date i {

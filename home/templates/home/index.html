@@ -40,7 +40,7 @@
                                     <a href="{% url 'post_details' post.slug %}" class="card-title mt-3">{{ post.title| truncatechars:20 }}
                                         <br>
                                         <p class="card-author mt-1">by {{ post.author }}</p>
-                                        <p class="card-created-date text-muted">{{ post.created_on }}
+                                        <p class="card-created-date">{{ post.created_on }}
                                             {% if post.variety %}
                                             <span class="style-kind" href="">{{post.variety}}</span>
                                             {% endif %}
