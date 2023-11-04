@@ -18,6 +18,9 @@ class Profile(models.Model):
 
 
 class Variety(models.Model):
+    """
+    Model for Variety
+    """
     class Meta:
         verbose_name_plural = "varieties"
     cat_id = models.AutoField(primary_key=True)
@@ -26,6 +29,10 @@ class Variety(models.Model):
     def __str__(self):
         return self.name
 
+    """Sets absolute URL"""
+    def get_absolute_url(self):
+        return reverse('home')
+
 
 class Post(models.Model):
     '''This model handles all posts'''
@@ -33,7 +40,8 @@ class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
-    variety = models.ForeignKey(to=Variety, related_name="posts", on_delete=models.SET_NULL, blank=True, null=True)
+    # variety = models.ForeignKey(to=Variety, related_name="posts", on_delete=models.SET_NULL, blank=True, null=True)
+    varieties = models.ForeignKey(Variety, on_delete=models.SET_DEFAULT, default=5)
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)

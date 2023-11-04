@@ -5,9 +5,9 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-    list_display = ('title',  'featured_image', 'variety', 'slug', 'status', 'created_on')
+    list_display = ('title',  'featured_image', 'varieties', 'slug', 'status', 'created_on')
     search_fields = ['title', 'content']
-    list_filter = ('status', 'created_on')
+    list_filter = ('status', 'created_on', 'varieties')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
@@ -31,3 +31,4 @@ class Profile(admin.ModelAdmin):
 @admin.register(Variety)
 class Variety(admin.ModelAdmin):
     list_display = ('cat_id', 'name')
+    search_fields = ('cat_id', 'name')

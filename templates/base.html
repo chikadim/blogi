@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"/>
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link rel="icon" href="{% static 'blogi/media/favicon.ico' %}" type="image/x-icon?" />
+        <link rel="shortcut icon" href="#" type="image/x-icon?">
 
         <title>Blogi</title>
     </head>
@@ -40,11 +42,8 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                 {% for item in cat_menu %}
-                                <li><a class="dropdown-item style-menu-item" href="{% url 'variety-index' item.cat_id %}">{{ item }}</a></li>
+                                <li><a class="dropdown-item style-menu-item" href="{% url 'variety' item.name %}">{{ item.name }}</a></li>
                                 {% endfor %}
-                                <!--<li>
-                                    <hr class="dropdown-divider">
-                                </li>-->
                                
                             </ul>
                         </li>
@@ -80,9 +79,10 @@
                     </ul>
                     <form class="d-flex" role="search" method="POST" action="{% url 'search-view' %}">
                         {% csrf_token %}
-                        <input class="form-control me-2" type="search" name="search_query" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" type="search" name="search_query" placeholder="Search title" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
+                    
                 </div>
                 
             </div>
