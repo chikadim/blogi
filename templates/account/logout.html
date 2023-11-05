@@ -1,26 +1,23 @@
-{% extends "base.html" %}
-
-{% load i18n %}
-
-{% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
-
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Cocktail Nerd | Log Out{% endblock %}
 {% block content %}
-<div class="container confirm-sign-out">
-  <div class="row">
-    <h1>{% trans "Sign Out" %}</h1>
-
-  <p>{% trans 'Are you sure you want to sign out?' %}</p>
-
-  <form method="post" action="{% url 'account_logout' %}">
-    {% csrf_token %}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-    {% endif %}
-    <button type="submit">{% trans 'Sign Out' %}</button>
-  </form>
-  </div>
+<div class="blogi-logout-container container-fluid">
+    <div class="row">
+        <!-- Hero Column -->
+        <div class="vh-100 bg-dark text-light px-4 py-4 text-center">
+            <div class="py-4">
+                <div class="col-lg-6 mx-auto">
+                    <h1>Log Out</h1>
+                    <p>Are you sure you want to log out?</p>
+                    <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button class="btn btn-danger me-2" type="submit">Log Out</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-{% endblock content %}
+{% endblock %}

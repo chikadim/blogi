@@ -4,6 +4,8 @@ from django.views import generic
 from django.views.generic import UpdateView, ListView
 from .models import Post, Profile, Variety
 from home.forms import BlogPostForm, ProfileForm
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 
 
@@ -12,7 +14,7 @@ class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "home/index.html"
-    paginate_by = 6
+    paginate_by = 9
 
     def get_context_data(self, *args, **kwargs):
         cat_menu = Variety.objects.all().exclude(name='Default')
@@ -55,23 +57,25 @@ def add_blogs(request):
     if request.method == "POST":
         form = BlogPostForm(data=request.POST, files=request.FILES)
         if form.is_valid():
+            messages.success(request, 'Post created successfully')
             blogpost = form.save(commit=False)
             blogpost.author = request.user
             blogpost.save()
             obj = form.instance
             alert = True
-            return render(request, "home/add_blogs.html", {
+            return redirect('/', {
                 'obj': obj, 'alert': alert
-                })
+            })
     else:
         form = BlogPostForm()
     return render(request, "home/add_blogs.html", {'form': form})
 
 
-class UpdatePostView(UpdateView):
+class UpdatePostView(SuccessMessageMixin, UpdateView):
     model = Post
     template_name = 'home/edit_blog_post.html'
     fields = ['title', 'slug', 'content', 'varieties', 'featured_image']
+    success_message = 'The cocktail was edited successfully!'
     success_url = reverse_lazy('post_details')
 
 
@@ -100,6 +104,7 @@ def edit_profile(request):
     if request.method == "POST":
         form = ProfileForm(data=request.POST, files=request.FILES, instance=profile)
         if form.is_valid():
+            messages.success(request, "You have successfully updated your profile")
             form.save()
             alert = True
             return render(request, "home/edit_profile.html", {'alert': alert})

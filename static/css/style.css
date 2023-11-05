@@ -12,6 +12,32 @@ body {
     height: 100px;
 }
 
+.my-sign-up {
+    background-color: #234E5A;
+}
+
+.blogi-btn {
+    background-color: #051B11;
+    border: 1px solid #0F5132;
+    color: #75B898;
+    font-weight: bold;
+}
+
+.blogi-btn:hover {
+    color: #bdecd5;
+}
+
+.my-sign-up #hint_id_password1 {
+    display:none;
+}
+
+.my-sign-up .form-group {
+    margin-bottom: 15px;
+}
+
+.my-sign-up h2 {
+    margin: 80px 0px 35px;
+}
 .sign-up-container {
     margin-top: 150px;
     display: flex;
@@ -32,6 +58,53 @@ body {
     text-align: center;
     text-decoration: none;
     list-style: none;
+}
+
+.blogi-logout-container h1{
+    margin-top: 80px;
+}
+
+.messages {
+    border-radius: 15px;
+    box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.75);
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+
+/* Give the various message types the correct colors */
+
+.alert-success {
+    background-color: #051B11;
+    border: 1px solid #0F5132;
+    color: #75B898;
+    font-weight: bold;
+}
+
+.messages p {
+    margin-bottom: 0px !important;
+    padding: 5px 0;
+}
+
+.message.success {
+    background-color: #068b06db !important;
+}
+
+.message.error {
+    background-color: red;
 }
 
 .intro-heading {
@@ -84,7 +157,7 @@ body {
 }
 
 .home-page-container {
-    padding: 0 12%;
+    padding: 0px 12%;
 }
 
 .footer-container {
@@ -272,7 +345,7 @@ body {
 
 .create-post-heading {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 100px;
 }
 
 .pagination-nav {

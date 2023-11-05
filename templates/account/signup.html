@@ -1,32 +1,31 @@
-{% extends "base.html" %}
-
-{% load i18n %}
-
-{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
-
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Blogi | Sign Up{% endblock title %}
 {% block content %}
-<div class="container sign-up-container">
-  <div class="row">
-    <div class="col">
-
-      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-
-  <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-  </form>
-
-  {% endblock content %}
-  </div>
-  <h1>{% trans "Sign Up" %}</h1>
-
+<div class="my-sign-up container-fluid">
+    <div class="row">
+        <!-- Hero Column -->
+        <div class="vh-100 bg-dark text-light px-4 py-4 text-left">
+            <div class="py-4">
+                <div class="col-lg-6 mx-auto">
+                    <h2>Sign Up</h2>
+                    <form method="post" autocomplete="off">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <br />
+                        <button id="blogi-sign-up" class="btn blogi-btn" type="submit">Sign Up on Blogi</button>
+                    </form>
+                    <br />
+                    Your password can&#39;t be too similar to your other personal information.
+                    <br />
+                    Your password must contain at least 8 characters.
+                    <br />
+                    Your password can&#39;t be a commonly used password.
+                    <br />
+                    Your password can&#39;t be entirely numeric.
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  
-
-
+</div>
+{% endblock %}
