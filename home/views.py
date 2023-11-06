@@ -78,7 +78,7 @@ class UpdatePostView(SuccessMessageMixin, UpdateView):
     model = Post
     template_name = 'home/edit_blog_post.html'
     fields = ['title', 'slug', 'content', 'varieties', 'featured_image']
-    success_message = 'The post was edited successfully!'
+    success_message = 'The post was updated successfully!'
     success_url = reverse_lazy('post_details')
 
 
@@ -86,6 +86,7 @@ def Delete_Blog_Post(request, slug):
     posts = Post.objects.get(slug=slug)
     if request.method == "POST":
         posts.delete()
+        messages.success(request, 'Post deleted successfully')
         return redirect('/')
     return render(request, 'home/delete_blog_post.html', {'posts': posts})
 
