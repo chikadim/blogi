@@ -78,7 +78,7 @@ class UpdatePostView(SuccessMessageMixin, UpdateView):
     model = Post
     template_name = 'home/edit_blog_post.html'
     fields = ['title', 'slug', 'content', 'varieties', 'featured_image']
-    success_message = 'The cocktail was edited successfully!'
+    success_message = 'The post was edited successfully!'
     success_url = reverse_lazy('post_details')
 
 
@@ -92,9 +92,8 @@ def Delete_Blog_Post(request, slug):
 
 def user_profile(request, myid):
     profile = Profile.objects.filter(user=myid)
-    post = Post.objects.all()
     return render(request, "home/user_profile.html",
-                  {'profile': profile, 'post': post})
+                  {'profile': profile})
 
 
 def see_profile(request):
@@ -112,7 +111,7 @@ def edit_profile(request):
             messages.success(request, "You have successfully updated your profile")
             form.save()
             alert = True
-            return render(request, "home/edit_profile.html", {'alert': alert})
+            return render(request, "home/profile.html", {'alert': alert})
     else:
         form = ProfileForm(instance=profile)
     return render(request, "home/edit_profile.html", {'form': form})

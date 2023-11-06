@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% block title %}Profile Page{% endblock title %}
+{% block title %}User Profile Page{% endblock title %}
 {% block content %}
 {% load static %}
 <div class="container-fluid">
@@ -27,7 +27,7 @@
                             <div class="form-row">
                                 {% for i in profile %}
                                 {% if "placeholder" in i.profile_image.url %}
-                                <h3><img src="{% static 'blogi/media/avatar.png' %}" alt="{{ user.username }}"
+                                <h3><img src="{% static 'blogi/media/avatar.webp' %}" alt="{{ user.username }}"
                                         class="user-avatar rounded-circle flex-shrink-0">
                                     {{ i.user | title }} </h3>
                                 {% else %}

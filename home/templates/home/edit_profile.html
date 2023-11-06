@@ -1,15 +1,57 @@
-{% extends 'base.html' %}
-
-{% block title %} Edit Page {% endblock %}
-
-{% block css %}
-{% endblock %}
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Profile Page{% endblock title %}
 {% block content %}
-<form action="/edit_profile/" enctype="multipart/form-data" method="POST"> {% csrf_token %}
-    <div class="container mt-3">
-   {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Update</button>
-    </div>
-</form>
-{% endblock %}
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Profile form  -->
+        <div class="text-bg-white px-5 py-5 text-left">
+            <div class="py-5">
+                <div class="col-lg-6 mx-auto">
+                    {% if user_form.errors %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div id="form_errors">
+                            {% for key, value in user_form.errors.items %}
+                            <strong>{{ value }}</strong>
+                            {% endfor %}
+                        </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endif %}
+                    <div class="form-content edit-profile-container">
+                        <form action="/edit_profile/" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+                            <div class="form-row">
 
+                                {% if "placeholder" in user.profile.profile_image.url %}
+                                <h3><img src="{% static 'blogi/media/avatar.webp' %}" alt="{{ user.username }}"
+                                    class="user-avatar rounded-circle flex-shrink-0">
+                                {{ user.username | title }} </h3>
+                                {% else %}
+                                <h3><img src="{{user.profile.profile_image.url}}" alt="{{ user.username }}"
+                                    class="user-avatar rounded-circle flex-shrink-0">
+                                {{ user.username | title }} </h3>
+                                {% endif%}
+                                <div class="form-group">
+                                    <label for="id_username" class="small mb-1">Username:</label>
+                                    <input type="text" name="username" value="{{ user }}" class="form-control" maxlength="150" required="" id="id_username" autocomplete="off" readonly>
+                                    
+                                    <label for="email_id" class="small mb-1">Email:</label>
+                                    <input type="email" name="email" value="{{ user.email }}" class="form-control" maxlength="150" required="" id="email_id" autocomplete="off" readonly>
+
+                                    
+                                {{ form.as_p }}
+                                <button type="submit" class="btn edit-profile-btn">Update Profile</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

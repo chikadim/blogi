@@ -26,7 +26,7 @@
                             {% csrf_token %}
                             <div class="form-row">
                                 {% if "placeholder" in user.profile.profile_image.url %}
-                                <h3><img src="{% static 'blogi/media/avatar.png' %}" alt="{{ user.username }}"
+                                <h3><img src="{% static 'blogi/media/avatar.webp' %}" alt="{{ user.username }}"
                                     class="user-avatar rounded-circle flex-shrink-0">
                                 {{ user.username | title }} </h3>
                                 {% else %}
@@ -48,7 +48,7 @@
 
                                     {% if user.profile.bio %}
                                     <label for="bio" class="small mb-1">Bio:</label>
-                                    <textarea name="bio" id="bio" cols="35" wrap="soft" value="{{ user.profile.bio }}" class="form-control" required="" autocomplete="off" readonly></textarea>
+                                    <textarea name="bio" id="bio" cols="35" wrap="soft" class="form-control" required="" autocomplete="off" readonly>{{ user.profile.bio }}</textarea>
                                     {% endif %}
 
                                     {% if user.profile.linkedin %}

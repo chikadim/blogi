@@ -88,6 +88,37 @@ body {
     margin-bottom: 1em;
 }
 
+.edit-profile-container .form-control {
+    margin-bottom: 1em;
+}
+
+.edit-profile-container .form-group p:not(:last-of-type){
+    
+}
+
+.edit-profile-container .form-group p:last-of-type {
+    margin-top: 30px;
+}
+
+.edit-profile-container .form-group p:last-of-type input {
+    margin-top: 10px;
+}
+
+.edit-profile-container .form-control:focus {
+    border-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 1px solid black;
+}
+
+.edit-profile-container .edit-profile-btn {
+    background-color: #051B11;
+    border: 1px solid #0F5132;
+    color: #75B898;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .user-avatar {
     width: 80px;
     height: 80px;
@@ -116,7 +147,7 @@ body {
     -webkit-box-shadow: none;
     box-shadow: none;
     outline: none;
-  }
+}
 
 
 
