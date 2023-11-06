@@ -1,94 +1,84 @@
-{% extends 'base.html' %}
-
-{% block title %} Profile {% endblock %}
-{% block profileactive %} active {% endblock profileactive %}
-
-
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Profile Page{% endblock title %}
 {% block content %}
-
-<div class="container profile">
-        <div class="row info-row">
-            <div class="col-md-4">
-                <div class="profile-img">
-                    {% if user.profile.profile_image.url %}
-                    <img src="{{user.profile.profile_image.url}}" alt="Profile Photo">
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="profile-tab">
-                    <div class="tab-pane">
-                        <br><br>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Username:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{user}}</p>
-                            </div>
+{% load static %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Profile form  -->
+        <div class="text-bg-white px-5 py-5 text-left">
+            <div class="py-5">
+                <div class="col-lg-6 mx-auto">
+                    {% if user_form.errors %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div id="form_errors">
+                            {% for key, value in user_form.errors.items %}
+                            <strong>{{ value }}</strong>
+                            {% endfor %}
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Email:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{user.email}}</p>
-                            </div>
-                        </div>
-                        {% if user.profile.phone_no %}
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Phone Number:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{user.profile.phone_no}}</p>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% if user.profile.bio %}
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Bio:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{user.profile.bio}}</p>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% if user.profile.linkedin %}
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Linkedin:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><a href="https://www.linkedin.com" target="_blank">{{user.profile.linkedin}}</a></p>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% if user.profile.instagram %}
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Instagram:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><a href="https://www.instagram.com" target="_blank">{{user.profile.instagram}}</a></p>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% if user.profile.facebook %}
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Facebook:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><a href="https://www.facebook.com" target="_blank">{{user.profile.facebook}}</a></p>
-                            </div>
-                        </div>
-                        {% endif %}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <a href="/edit_profile/" class="btn btn-secondary">Edit Profile</a>
+                    {% endif %}
+                    <div class="form-content profile-container">
+                        <form method="post" id="profile-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                {% if user.profile.profile_image.url %}
+                                <h3><img src="{{user.profile.profile_image.url}}" alt="{{ user.username }}"
+                                        class="user-avatar rounded-circle flex-shrink-0">
+                                    {{ user.username | title }} </h3>
+                                {% else %}
+                                <h3><img src="{% static 'blogi/media/avatar.png' %}" alt="{{ user.username }}"
+                                        class="user-avatar rounded-circle flex-shrink-0">
+                                    {{ user.username | title }} </h3>
+                                {% endif%}
+                                <div class="form-group">
+                                    <label for="id_username" class="small mb-1">Username:</label>
+                                    <input type="text" name="username" value="{{ user }}" class="form-control" maxlength="150" required="" id="id_username" autocomplete="off" readonly>
+                                    
+                                    <label for="id_email" class="small mb-1">Email:</label>
+                                    <input type="email" name="email" value="{{ user.email }}" class="form-control" maxlength="150" required="" id="id_email" autocomplete="off" readonly>
+
+                                    {% if user.profile.phone_no %}
+                                    <label for="id_phone" class="small mb-1">Phone No:</label>
+                                    <input type="phone" name="phone" value="{{ user.profile.phone_no }}" class="form-control" maxlength="150" required="" id="id_phone" autocomplete="off" readonly>
+                                    {% endif %}
+
+                                    {% if user.profile.bio %}
+                                    <label for="bio" class="small mb-1">Bio:</label>
+                                    <textarea name="bio" id="bio" cols="35" wrap="soft" value="{{ user.profile.bio }}" class="form-control" required="" autocomplete="off" readonly></textarea>
+                                    {% endif %}
+
+                                    {% if user.profile.linkedin %}
+                                    <label for="id_linkedin" class="small mb-1">LinkedIn:</label>
+                                    <input type="text" name="linkedin" value="{{ user.profile.linkedin }}" class="form-control" maxlength="150" required="" id="id_linkedin" readonly>
+                                    {% endif %}
+
+                                    {% if user.profile.instagram %}
+                                    <label for="id_instagram" class="small mb-1">Instagram:</label>
+                                    <input type="text" name="instagram" value="{{ user.profile.instagram }}" class="form-control" maxlength="150" required="" id="id_instagram" readonly>
+                                    {% endif %}
+
+                                    {% if user.profile.instagram %}
+                                    <label for="id_facebook" class="small mb-1">Facebook:</label>
+                                    <input type="text" name="facebook" value="{{ user.profile.facebook }}" class="form-control" maxlength="150" required="" id="id_facebook" readonly>
+                                    {% endif %}
+
+                                    
+                                </div>
+                            </div>
+                            <br><br>
+                            <a href="/edit_profile/" class="profile-edit-button btn btn-outline-success">Edit profile</button>
+                            <a href="{% url 'home' %}" class="profile-cancel-button btn btn-outline-secondary">Cancel</a>
+                        </form>
+                        
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
 </div>
-</div>
-{% endblock %}
+
+{% endblock content %}

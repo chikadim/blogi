@@ -89,7 +89,9 @@ def Delete_Blog_Post(request, slug):
 
 def user_profile(request, myid):
     profile = Profile.objects.filter(user=myid)
-    return render(request, "home/user_profile.html", {'profile': profile})
+    post = Post.objects.all()
+    return render(request, "home/user_profile.html",
+                  {'profile': profile, 'post': post})
 
 
 def see_profile(request):

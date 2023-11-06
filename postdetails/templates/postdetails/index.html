@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
+{% load static %}
+
 {% load crispy_forms_tags %}
 
 <div class="container">
@@ -25,14 +27,16 @@
                     <div class="card-body">
                         <h4 class="card-title">{{ post.title }}</h4>
                         <div class="d-flex flex-row align-items-center">
-                            <div class="image-hold align-items-center overflow-hidden">
+                            <div class="align-items-center overflow-hidden">
                                 <a href="/user_profile/{{post.author.id}}/">
-                                    {% if post.author.profile.profile_image.url %}
-                                    <img src="{{post.author.profile.profile_image.url}}" alt="User Photo"/>
+                                    {% if "placeholder" in post.author.profile.profile_image.url %}
+                                    <h3><img src="{% static 'blogi/media/avatar.png' %}" alt="Profile photo" class="post-details-avatar rounded-circle flex-shrink-0"></h3>
                                     
+                                        
                                     {% else %}
-                                    <img class="img-fluid" alt="User Photo"
-                                        src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                    <h3><img src="{{post.author.profile.profile_image.url}}" alt="Profile photo" class="post-details-avatar rounded-circle flex-shrink-0"></h3>
+
+                                    
                                     {% endif %}
                                 </a>    
                             </div>

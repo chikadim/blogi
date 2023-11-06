@@ -1,88 +1,90 @@
-{% extends 'base.html' %}
-
-{% block title %} User Profile {% endblock %}
-
-{% block content %}    
-
-<div class="container profile">
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <form method="post" id="form" name="form">
-                <div class="row info-row">
-                    {% for i in profile %}
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            {% if i.profile_image %}
-                            <img src="{{i.profile_image.url}}" alt="">
-                            {% endif %}
+        <!-- Profile form  -->
+        <div class="text-bg-white px-5 py-5 text-left">
+            <div class="py-5">
+                <div class="col-lg-6 mx-auto">
+                    {% if user_form.errors %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div id="form_errors">
+                            {% for key, value in user_form.errors.items %}
+                            <strong>{{ value }}</strong>
+                            {% endfor %}
                         </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="col-md-8">
-                        <div class="profile-tab">
-                            <div class="tab-pane">
-                                <br><br>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Username:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{i.user}}</p>
-                                    </div>
+                    {% endif %}
+                    <div class="form-content profile-container">
+                        <form method="post" id="profile-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                {% for i in profile %}
+                                {% if "placeholder" in i.profile_image.url %}
+                                <h3><img src="{% static 'blogi/media/avatar.png' %}" alt="{{ user.username }}"
+                                        class="user-avatar rounded-circle flex-shrink-0">
+                                    {{ i.user | title }} </h3>
+                                {% else %}
+                                <h3><img src="{{i.profile_image.url}}" alt="{{ user.username }}"
+                                        class="user-avatar rounded-circle flex-shrink-0">
+                                    {{ i.user | title }} </h3>
+                                {% endif%}
+
+                                <div class="form-group">
+                                    <label for="id_username" class="small mb-1">Username:</label>
+                                    <input type="text" name="username" value="{{ i.user }}" class="form-control" maxlength="150" required="" id="id_username" autocomplete="off" readonly>
+                                    
+                                    <label for="id_email" class="small mb-1">Email:</label>
+                                    <input type="email" name="email" value="{{ i.user.email }}" class="form-control" maxlength="150" required="" id="id_email" autocomplete="off" readonly>
+
+
+                                    {% if i.user.profile.phone_no %}
+                                    <label for="id_phone" class="small mb-1">Phone No:</label>
+                                    <input type="phone" name="phone" value="{{ i.user.profile.phone_no }}" class="form-control" maxlength="150" required="" id="id_phone" autocomplete="off" readonly>
+                                    {% endif %}
+
+                                    {% if i.user.profile.bio %}
+                                    <label for="id_bio" class="small mb-1">Bio:</label>
+                                    <textarea name="bio" id="id_bio" cols="35" wrap="soft" class="form-control" required="" readonly>{{ i.user.profile.bio }}</textarea>
+                                    {% endif %}
+
+                                    {% if i.user.profile.linkedin %}
+                                    <label for="id_linkedin" class="small mb-1">LinkedIn:</label>
+                                    <input type="text" name="linkedin" value="{{ i.user.profile.linkedin }}" class="form-control" maxlength="150" required="" id="id_linkedin" readonly>
+                                    {% endif %}
+
+                                    {% if i.user.profile.instagram %}
+                                    <label for="id_instagram" class="small mb-1">Instagram:</label>
+                                    <input type="text" name="instagram" value="{{ i.user.profile.instagram }}" class="form-control" maxlength="150" required="" id="id_instagram" readonly>
+                                    {% endif %}
+
+                                    {% if i.user.profile.instagram %}
+                                    <label for="id_facebook" class="small mb-1">Facebook:</label>
+                                    <input type="text" name="facebook" value="{{ i.user.profile.instagram }}" class="form-control" maxlength="150" required="" id="id_facebook" readonly>
+                                    {% endif %}
+
+                                    
+                                    
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.email}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Bio:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{i.bio}}</p>
-                                    </div>
-                                </div>    
-                                {% if i.linkedin %}
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Linkedin:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{i.linkedin}}</p>
-                                    </div>
-                                </div>  
-                                {% endif %}
-                                {% if i.instagram %}
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Instagram:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{i.instagram}}</p>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% if i.facebook %}
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Facebook:</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{i.facebook}}</p>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                {% endfor %}             
-                            </div>                 
-                        </div>   
+
+                                {% endfor %}
+                                
+                            </div>
+                            <br><br>
+
+                        </form>
+                        
                     </div>
                 </div>
-            </form> 
+            </div>
         </div>
-        
-    </div>       
+    </div>
 </div>
-        {% endblock %}
+
+{% endblock content %}

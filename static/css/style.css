@@ -82,7 +82,42 @@ body {
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+.profile-container .form-control {
+    margin-bottom: 1em;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 50px;
+}
+
+.post-details-avatar {
+    width: 80px;
+    height: 80px;
+}
+
+#id-bio {
+    padding: 8px 12px;
+}
+
+.profile-edit-button {
+    background-color: #051B11;
+    border: 1px solid #0F5132;
+    color: #75B898;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.profile-container .form-control:focus {
+    border-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
   }
+
 
 
 /* Give the various message types the correct colors */
@@ -229,12 +264,6 @@ body {
     margin: 15px 0 30px;
 }
 
-.image-hold img {
-    background-color: #F9FAFC;
-    width: 80px;
-    height: 80px;
-    border-radius: 100%;
-}
 
 .info-row {
     flex-direction: column;
