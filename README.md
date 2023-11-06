@@ -338,6 +338,14 @@ delete the following ones:
 * All images were gotten from [Unsplash](https://www.unsplash.com)
 
 ## Testing
+Back to the [README](README.md)
+
+* Testing has taken place continuously throughout the development of the project. Each view was tested regularly. 
+  When the outcome was not as expected, debugging took place at that point.
+
+### Python Validation - PEP8
+* Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
+were entered into the online checker and no errors were found in any of the custom codes.
 
 ## Deployment
 ### Deploy on Heroku
