@@ -25,14 +25,14 @@
                         <form method="post" id="profile-form" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="form-row">
-                                {% if user.profile.profile_image.url %}
-                                <h3><img src="{{user.profile.profile_image.url}}" alt="{{ user.username }}"
-                                        class="user-avatar rounded-circle flex-shrink-0">
-                                    {{ user.username | title }} </h3>
-                                {% else %}
+                                {% if "placeholder" in user.profile.profile_image.url %}
                                 <h3><img src="{% static 'blogi/media/avatar.png' %}" alt="{{ user.username }}"
-                                        class="user-avatar rounded-circle flex-shrink-0">
-                                    {{ user.username | title }} </h3>
+                                    class="user-avatar rounded-circle flex-shrink-0">
+                                {{ user.username | title }} </h3>
+                                {% else %}
+                                <h3><img src="{{user.profile.profile_image.url}}" alt="{{ user.username }}"
+                                    class="user-avatar rounded-circle flex-shrink-0">
+                                {{ user.username | title }} </h3>
                                 {% endif%}
                                 <div class="form-group">
                                     <label for="id_username" class="small mb-1">Username:</label>
