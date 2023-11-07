@@ -42,11 +42,11 @@
                                         <p class="card-author mt-1">by {{ post.author }}</p>
                                         <p class="card-created-date">{{ post.created_on }}
                                             {% if post.varieties %}
-                                            <span class="style-kind" href="">{{post.varieties}}</span>
+                                            <span class="style-kind">{{post.varieties}}</span>
                                             {% endif %}
                                         </p>
 
-                                        <hr />
+                                        <hr>
 
                                         <p class="card-text">{{ post.content| truncatechars:210 }}</p>
 
@@ -70,7 +70,6 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-            </div>
             </div>
         </div>
     </div>
