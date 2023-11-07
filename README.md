@@ -21,11 +21,15 @@ On our website you can like and comment on your posts and other people posts. Yo
     - [Colors](#colors)
     - [Typography](#typography)
     - [Wireframes](#wireframes)
+  - [Database Planning](#database-planning)
   - [Features](#features)
     - [Home Page](#home-page)
     - [Sign Up Page](#sign-up-page)
     - [Log In Page](#log-in-page)
     - [Log Out Page](#log-out-page)
+    - [Category Page](#category-page)
+    - [Comments](#comments)
+    - [Likes](#likes)
     - [Create Post](#create-post-page)
     - [Post Detail Page](#post-detail-page)
     - [Create Profile](#create-profile-page)
@@ -33,10 +37,10 @@ On our website you can like and comment on your posts and other people posts. Yo
     - [Edit Profile](#edit-profile-page)
     - [User Profile](#user-profile-page)
   - [Messages and Interactions With Users](#messages-and-interactions)
-    - [Sign In](#sign-in)
-    - [Sign Out Warning](#sign-out-warning)
-    - [Sign Out](#sign-out)
-    - [Search a Title](#search-title)
+    - [Log In](#log-in)
+    - [Log Out Warning](#log-out-warning)
+    - [Log Out](#log-out)
+    - [Search a Title](#search-a-title)
     - [Post Created](#post-created)
     - [Update Post](#update-post-success)
     - [Delete Post](#delete-post)
@@ -131,8 +135,9 @@ Project Objectives:
 ### Typography
 * Fonts used are Roboto and Lato. Sans-serif was used as an alternative
 
-### Wireframes
-* Pages were planned out on [Figma](https://www.figma.com) using wireframes
+## Database Planning
+I used figjam to bring out the planning from my initial sketch
+![Database Planning](media/images/database_planning.png)
 
 ## Features
 ### Home Page
@@ -165,7 +170,7 @@ Project Objectives:
   * The redirected social media websites open on a new tab
 
 
-### Sign Up
+### Sign Up Page
 ![Sign up](media/images/signuppage.png)
   * The sign up page takes the username, the email(optional) and the password
   * Validates the inputs against the below instructions
@@ -177,9 +182,32 @@ Project Objectives:
   * Your password can't be a commonly used password.
   * Your password can't be entirely numeric. 
 
-### Log In
+### Log In Page
 ![Log in](media/images/loginpage.png)
   * Throws an error when a user inputs the wrong username and password
+
+### Log Out Page
+* When users intend to log out of their account they receive a warning message
+![Log Out Warn](media/images/signoutwarn.png)
+
+* When users sign out of their account they receive a confirmation message
+![Log Out](media/images/signoutmsg.png)
+
+### Category Page
+![Category Page](media/images/category_nav.png)
+When users click the category tab on the nav, they will get a list of all existing categories. They can select a category to see the list for that particular category
+
+Listed Category for Nature
+![Category List](media/images/category_list.png)
+
+### Comments
+A registered user can comment on posts.
+The Superusers can also see all posts and comment on them
+![Comments](media/images/comments.png)
+
+### Likes
+A registered user can click like on any post
+![Likes](media/images/likes.png)
 
 ### Create Post
 ![Create a post](media/images/createform.png)
@@ -225,17 +253,17 @@ Project Objectives:
 
 
 ## Messages and Interactions With Users
-### Sign In
+### Log In
 * When a user searches for a title that is not among the listed posts
 ![Sign In](media/images/signinmsg.png)
 
-### Sign Out Warning
+### Log Out Warning
 * When users intend to sign out of their account they receive a warning message
-![Sign Out](media/images/signoutwarn.png)
+![Log Out Warn](media/images/signoutwarn.png)
 
-### Sign Out
+### Log Out
 * When users sign out of their account they receive a confirmation message
-![Sign Out](media/images/signoutmsg.png)
+![Log Out](media/images/signoutmsg.png)
 
 ### Search a Title
 * When a user searches for a title that is not among the listed posts
