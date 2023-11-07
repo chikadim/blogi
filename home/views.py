@@ -51,7 +51,10 @@ def search_feature(request):
         search_query = request.POST['search_query']
         # Filter Post Model by the search query
         posts = Post.objects.filter(title__contains=search_query)
-        return render(request, 'home/search.html', {'search_query': search_query, 'posts': posts})
+        return render(
+            request, 'home/search.html',
+            {'search_query': search_query, 'posts': posts}
+        )
     else:
         return render(request, 'home/search.html', {})
 
@@ -107,9 +110,14 @@ def edit_profile(request):
     except Profile.DoesNotExist:
         profile = Profile(user=request.user)
     if request.method == "POST":
-        form = ProfileForm(data=request.POST, files=request.FILES, instance=profile)
+        form = ProfileForm(
+            data=request.POST, files=request.FILES, instance=profile
+        )
         if form.is_valid():
-            messages.success(request, "You have successfully updated your profile")
+            messages.success(
+                request,
+                "You have successfully updated your profile"
+            )
             form.save()
             alert = True
             return render(request, "home/profile.html", {'alert': alert})

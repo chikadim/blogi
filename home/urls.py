@@ -5,10 +5,22 @@ from .views import UpdatePostView
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path("add_blogs/", views.add_blogs, name="add_blogs"),
-    path("edit_blog_post/<str:slug>/", UpdatePostView.as_view(), name="edit_blog_post"),
-    path("delete_blog_post/<str:slug>/", views.Delete_Blog_Post, name="delete_blog_post"),
+    path(
+        "edit_blog_post/<str:slug>/",
+        UpdatePostView.as_view(),
+        name="edit_blog_post"
+    ),
+    path(
+        "delete_blog_post/<str:slug>/",
+        views.Delete_Blog_Post,
+        name="delete_blog_post"
+    ),
     path("search/", views.search_feature, name="search-view"),
-    path('varieties/<varieties>/', views.VarietyListView.as_view(), name="variety"),
+    path(
+        'varieties/<varieties>/',
+        views.VarietyListView.as_view(),
+        name="variety"
+    ),
 
     # profile
     path("profile/", views.see_profile, name="profile"),

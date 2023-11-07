@@ -44,7 +44,15 @@ On our website you can like and comment on your posts and other people posts. Yo
     - [Update Profile](#update-profile-success)
   - [Admin Panel/Superuser](#admin-panel)
   - [Future Features](#future-features)
+  - [Technologies Used](#technologies-used)
   - [Testing](#testing)
+  - [Deployment](#deployment)
+    - [Deploy on Heroku](#deploy-on-heroku)
+    - [Fork the repository](#fork-the-repository)
+    - [Clone the repository](#clone-the-repository)
+  - [Credits](#credits)
+    - [Code](#code)
+
 
 ## User Experience
 
@@ -312,8 +320,6 @@ delete the following ones:
    VSCode was used to create and edit the website
 * [Lucidchart](https://lucid.app/)<br>
    Lucidchart was used to create the database diagram
-* [PEP8](http://pep8online.com/)<br>
-   PEP8 was used to validate all the Python code
 * [W3C - HTML](https://validator.w3.org/)<br>
    W3C- HTML was used to validate all the HTML code
 * [W3C - CSS](https://jigsaw.w3.org/css-validator/)<br>
@@ -332,20 +338,16 @@ delete the following ones:
    To build the logos for the project
 * [Coolors](https://coolors.co/)<br>
    To build the colour palette of the project
+* [Python Checker](https://pythonchecker.com/)<br>
+   To test all python files
 
 ### Contents
 * The contents of the posts were generated from [Open AI](https://www.openai.com) 
 * All images were gotten from [Unsplash](https://www.unsplash.com)
 
 ## Testing
-Back to the [README](README.md)
+Testing results [here](TESTING.md)
 
-* Testing has taken place continuously throughout the development of the project. Each view was tested regularly. 
-  When the outcome was not as expected, debugging took place at that point.
-
-### Python Validation - PEP8
-* Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
-were entered into the online checker and no errors were found in any of the custom codes.
 
 ## Deployment
 ### Deploy on Heroku

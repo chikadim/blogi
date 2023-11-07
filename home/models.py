@@ -8,7 +8,14 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    """
+    This class builds the Profile Model
+    """
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        blank=True, null=True
+    )
     profile_image = CloudinaryField('image', default='placeholder')
     bio = models.TextField(blank=True, null=True)
     phone_no = models.IntegerField(blank=True, null=True)
@@ -39,9 +46,10 @@ class Post(models.Model):
 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
-    # variety = models.ForeignKey(to=Variety, related_name="posts", on_delete=models.SET_NULL, blank=True, null=True)
-    varieties = models.ForeignKey(Variety, on_delete=models.SET_DEFAULT, default=5)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts")
+    varieties = models.ForeignKey(
+        Variety, on_delete=models.SET_DEFAULT, default=5)
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
