@@ -67,3 +67,41 @@ Fixed
 ## CSS Validation
 CSS was validated using jigsaw.w3.org and 1 error was found
 ![CSS Validation](./assets/readme/test/cssvalidation_error.png)
+
+<br>
+
+Fixed
+![CSS Validation](./assets/readme/test/cssvalidation_fixed.png)
+
+
+## Manual Testing
+### Frontend
+* The Signup, Login and Logout system has no issues and is working accordingly. It shows the right 
+  interactive message to the users.
+* The Profile Page is working properly. It updates the user information and uploads/updates the 
+  user profile image. It shows the interactive message to the user once the update is complete.
+* The user profile image in the Post Details page has no issues and shows the user image 
+  when it is uploaded by the user on the Profile Page.
+* All the internal links are working and bring the user to the right page on the website.
+* All the external links are working and bring the user to the right social media page by 
+  opening a new browser tab.
+* The Categories Page shows the categories filtered by category without issues.
+* The drop-down menu in the navbar shows a list of categories on every page of the website.
+* The pagination system is working. It adds another page after 9 posts on the page.
+* On the Post Details Page, the Like/unlike functionality is working without issues
+* The comment form has no issues and it submits a new comment once the form is completed by a
+  registered user. 
+  The comment is displayed once the submit button is pressed. The two interactive messages for 
+  this action are working without errors. 
+* The functionality to delete a post, previously done by the user or by the superuser, is 
+  working without issues. The delete warning opens to ask the user if they want to delete 
+  the message. Once the action is complete, the interactive message is displayed at the top of the page.
+* On the post details Page, the CRUD functionality is working without issues. Logged in users can create a new 
+  post such as update or delete their own posts, also any post can be updated or deleted on this page by the Superuser.
+* On the post list Page, the superuser can delete any post
+
+### Backend/Admin Panel
+* I have tested the Admin Panel repeatedly since the start of the project development. All the models are working without issues.  
+  I have created, deleted, and updated data in all models without errors. The models have the behavior expected for what they were built for.
+* Whenever a user comments on a post the Superuser has to approve it before it will be displayed on the website. This functionality is working without issues.
+* When the user is making a new post all the required fields have to be filled otherwise the user can't submit the post to the database.
