@@ -56,5 +56,14 @@ Lighthouse was used to test Performance, Best Practices, Accessibility and SEO o
 ## HTML Validation
 HTML was validated using Validator.w3.org and 30 errors were found
 
-* ![HTML Validation](./assets/readme/test/htmlvalidation_one.png)
-* ![HTML Validation](./assets/readme/test/htmlvalidation_two.png)
+![HTML Validation](./assets/readme/test/htmlvalidation_one.png)
+![HTML Validation](./assets/readme/test/htmlvalidation_two.png)
+
+<br>
+
+Fixed
+![HTML Validation](./assets/readme/test/htmlvalidation_fixed.png)
+
+## CSS Validation
+CSS was validated using jigsaw.w3.org and 1 error was found
+![CSS Validation](./assets/readme/test/cssvalidation_error.png)

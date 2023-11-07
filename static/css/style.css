@@ -323,7 +323,7 @@ body {
 }
 
 .post-image-container img{
-    overflow: none;
+    overflow: hidden;
     background-color: #F9FAFC;
     margin-top: 20px;
     width: 100%;
