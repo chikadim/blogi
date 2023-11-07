@@ -51,3 +51,4 @@ When the outcome was not as expected, debugging took place at that point.
 
 ## Lighthouse
 Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop.
+* ![Lighthouse](./assets/readme/test/lighthouse.png)
